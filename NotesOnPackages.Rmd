@@ -49,15 +49,19 @@ Fourth, create `packagename.R` file in `\R` folder in the package folder and inc
 NULL
 ```
 
+Now use the following commands when you make changes or add functions to the package
+```r
+document() #adds the new changes
+build() #builds the package
+install() #installs the updated package
+check() #checks for errors
+.rs.restartR() #restarts R
+require(packagename) #calls the updated package for you to test functionality
+```
 
-document()
-build()
-install()
-check()
-.rs.restartR()
-#require(packagename)
-
+Other options that might be of interest to you are as follows
+```r
 use_readme_rmd() #add readme file to package
-use_vignette("ExampleVignette")
-#load data into R
-use_data(BRCAreceptorStatus)
+use_vignette("ExampleVignette") #creates a vignette option for examples
+use_data(datafilename) #load data into R and then use this function to add it to your package
+```
