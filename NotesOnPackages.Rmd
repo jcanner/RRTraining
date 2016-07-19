@@ -1,0 +1,63 @@
+---
+title: "Some Notes on Packages"
+author: "Judith Canner"
+date: "July 19, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Creating a Package Base
+
+There are several ways to start the processing of creating a package.  The method I appreciated the most was the New Project Method.  Here are the steps
+1. In R Studio, go to *File* and then *New Project*
+2. Either create a New Directory or create an existing Working Directory or if you wish to use a GitHub repository use Version Control - in the last two cases skip to 6 after following any other directives
+3. Check R Package
+4. Provide a Name for the Package
+5. Check create git repository for version control
+6. The default package necessitities should be there with a new directory, with exisiting or version control do the following.
+```r
+require(devtools)
+devtools::create("packagename")
+```
+
+Once the package is created there are some things you might want to do
+
+First, as you write your pacakge you may want to check the components of the package are working, etc.  To do this you will need to load some R packages for this "check as you go" approach including
+```r
+require(devtools)
+require(roxygen2)
+require(knitr)
+require(rmarkdown)
+```
+
+Second, you will probably want to delete the `hello.R` file in the `\R` directory and the associated `hello.rd` in the `\man` directory created (note this is the last time you will mess with the `\man` file).
+
+Third, edit the `DESCRIPTION` file provided as indicated in the prompts
+
+Fourth, create `packagename.R` file in `\R` folder in the package folder and include the following comments
+```r
+#' Package Name
+#'
+#' Package description
+#'
+#'
+#' @docType package
+#' @name packagename
+NULL
+```
+
+
+document()
+build()
+install()
+check()
+.rs.restartR()
+#require(packagename)
+
+use_readme_rmd() #add readme file to package
+use_vignette("ExampleVignette")
+#load data into R
+use_data(BRCAreceptorStatus)
