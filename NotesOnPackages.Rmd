@@ -65,3 +65,22 @@ use_readme_rmd() #add readme file to package
 use_vignette("ExampleVignette") #creates a vignette option for examples
 use_data(datafilename) #load data into R and then use this function to add it to your package
 ```
+
+##Creating a Function in your package
+Create a new fuctionname.R file in R with the follow text (filled in with n example)
+
+```r
+#' A Trivial Function
+#' 
+#' This will add two numbers, x and y.
+#' 
+#' @param x,y two nuumbers to be added
+#' @return the sum of the two numbers
+#' @examples 
+#' trivial(2,3)
+#' @export
+
+trivial<-function(x,y){ x+y }
+
+```
+
