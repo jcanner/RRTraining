@@ -9,9 +9,7 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Judith Canner" />
 
-<meta name="date" content="2016-07-19" />
 
 <title>Some Notes on Packages</title>
 
@@ -117,17 +115,17 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Some Notes on Packages</h1>
-<h4 class="author"><em>Judith Canner</em></h4>
-<h4 class="date"><em>July 19, 2016</em></h4>
 
 </div>
 
 
 <div id="creating-a-package-base" class="section level2">
 <h2>Creating a Package Base</h2>
-<p>There are several ways to start the processing of creating a package. The method I appreciated the most was the New Project Method. Here are the steps 1. In R Studio, go to <em>File</em> and then <em>New Project</em> 2. Either create a new or existing Working Directory or if you wish to use a GitHub repository use Version Control. 3. Check R Package 4. Provide a Name for the Package 5. Check create git repository for versio control 6. The default package necessitities should be there!</p>
+<p>There are several ways to start the processing of creating a package. The method I appreciated the most was the New Project Method. Here are the steps 1. In R Studio, go to <em>File</em> and then <em>New Project</em> 2. Either create a New Directory or create an existing Working Directory or if you wish to use a GitHub repository use Version Control - in the last two cases skip to 6 after following any other directives 3. Check R Package 4. Provide a Name for the Package 5. Check create git repository for version control 6. The default package necessities should be there with a new directory, with existing or version control do the following.</p>
+<pre class="r"><code>require(devtools)
+devtools::create(&quot;packagename&quot;)</code></pre>
 <p>Once the package is created there are some things you might want to do</p>
-<p>First, as you write your pacakge you may want to check the components of the package are working, etc. To do this you will need to load some R packages for this “check as you go” approach including</p>
+<p>First, as you write your package you may want to check the components of the package are working, etc. To do this you will need to load some R packages for this “check as you go” approach including</p>
 <pre class="r"><code>require(devtools)
 require(roxygen2)
 require(knitr)
@@ -143,8 +141,33 @@ require(rmarkdown)</code></pre>
 #' @docType package
 #' @name packagename
 NULL</code></pre>
-<p>document() build() install() check() .rs.restartR() #require(packagename)</p>
-<p>use_readme_rmd() #add readme file to package use_vignette(“ExampleVignette”) #load data into R use_data(BRCAreceptorStatus)</p>
+<p>Now use the following commands when you make changes or add functions to the package</p>
+<pre class="r"><code>document() #adds the new changes
+build() #builds the package
+install() #installs the updated package
+check() #checks for errors
+.rs.restartR() #restarts R
+require(packagename) #calls the updated package for you to test functionality</code></pre>
+<p>Other options that might be of interest to you are as follows</p>
+<pre class="r"><code>use_readme_rmd() #add readme file to package
+use_vignette(&quot;ExampleVignette&quot;) #creates a vignette option for examples
+use_data(datafilename) #load data into R and then use this function to add it to your package</code></pre>
+</div>
+<div id="creating-a-function-in-your-package" class="section level2">
+<h2>Creating a Function in your package</h2>
+<p>Create a new fuctionname.R file in R with the follow text (filled in with n example)</p>
+<pre class="r"><code>#' A Trivial Function
+#' 
+#' This will add two numbers, x and y.
+#' 
+#' @param x,y two nuumbers to be added
+#' @return the sum of the two numbers
+#' @examples 
+#' trivial(2,3)
+#' @export
+
+trivial&lt;-function(x,y){ x+y }
+</code></pre>
 </div>
 
 

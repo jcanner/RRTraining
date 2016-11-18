@@ -1,7 +1,5 @@
 ---
 title: "Some Notes on Packages"
-author: "Judith Canner"
-date: "July 19, 2016"
 output: html_document
 ---
 
@@ -17,7 +15,7 @@ There are several ways to start the processing of creating a package.  The metho
 3. Check R Package
 4. Provide a Name for the Package
 5. Check create git repository for version control
-6. The default package necessitities should be there with a new directory, with exisiting or version control do the following.
+6. The default package necessities should be there with a new directory, with existing or version control do the following.
 ```r
 require(devtools)
 devtools::create("packagename")
@@ -25,7 +23,7 @@ devtools::create("packagename")
 
 Once the package is created there are some things you might want to do
 
-First, as you write your pacakge you may want to check the components of the package are working, etc.  To do this you will need to load some R packages for this "check as you go" approach including
+First, as you write your package you may want to check the components of the package are working, etc.  To do this you will need to load some R packages for this "check as you go" approach including
 ```r
 require(devtools)
 require(roxygen2)
